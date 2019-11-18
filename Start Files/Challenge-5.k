@@ -31,3 +31,87 @@ down into simpler subproblems. What if there were only one tree? How would
 that simplify the problem, and how can you use the one-tree solution to help
 solve the more general case?
 */
+
+import "turns";
+
+
+function checkIfTree(){
+	turnLeft();
+	while(frontIsClear()){
+	move();
+
+	}
+	turnAround();
+	while(frontIsClear()){
+	move();
+	}
+	turnAround();
+}
+
+function goUpTrees(){
+	turnLeft();
+	while(rightIsBlocked()){
+		move();
+	}
+	giveTreesLeaves();
+}
+
+function giveTreesLeaves(){
+	turnAround();
+	move();
+	putBeeper();
+	turnAround();
+	move();
+	turnRight();
+	putBeeper();
+	move();
+	turnRight();
+	putBeeper();
+	move();
+	putBeeper();
+	
+}
+
+function goDownTrees(){
+	while(frontIsClear()){
+		move();
+	}
+	turnLeft();
+	move();
+}
+
+function Solve(){
+	move();
+	goUpTrees();
+	goDownTrees();
+	goUpTrees();
+	goDownTrees();
+	move();
+	move();
+	goUpTrees();
+	goDownTrees();
+	move();
+	goUpTrees();
+	goDownTrees();
+	checkIfTree();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
